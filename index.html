@@ -26,7 +26,7 @@
 			</figure>
 
 			<p>
-				Insights about the data/visualization:
+				<strong>Insights about the data/visualization:</strong>
 			</p>
 
 				<ul>
@@ -40,108 +40,196 @@
 						The visualization encodes temporal continuity across years without artificial breaks. Traditional year-separated plots (small multiples) impose visual discontinuities at December-January boundaries. In this spiral, December flows directly into January as a natural continuation, emphasizing pandemic persistence rather than "calendar resets." That continuity supports interpretation of wave carryover and policy lag effects.
 					</li>
 					<li>
-						I think what the visualization does well is it provides an intuitive mental model of "waves layered in time." The spiral makes clear that 2021 does not overwrite 2020; it wraps around it. This layering helps conceptualize compounding public health burden and the escalation in baseline case levels year-over-year.
+						I think what the visualization does well is it provides an intuitive mental model of "waves layered in time." The spiral makes clear that 2021 does not overwrite 2020, it wraps around it. This layering helps conceptualize compounding public health burden and the escalation in baseline case levels year-over-year.
 					</li>
 				</ul>
 
 			<p>
-				Design Critique:
+				<strong>Design Critique:</strong>
 			</p>
 
 				<p>
 					The core problem is that the chart optimizes for affect and novelty more than for measurement. Spiral/radial encodings make it harder to do the two things readers most want in a COVID cases chart: (1) read approximate values at specific dates, and (2) compare slopes/acceleration between waves. Precise estimation/comparison becomes difficult, and the geometry can distort perceived magnitude, like how later years can look "bigger" partly because they are drawn on a larger radius. The outward rings carry a built-in "larger circle = larger thing" perceptual cue even if the data values were identical.
 				</p>
 
-				<p>
-					In fact, the spiral appears shifted and "wobbly," likely due to an aesthetic adjustment that breaks the expectation of a clean, centered spiral. Even subtle off-centering matters because it introduces an additional non-data variation in curvature that viewers cannot help but read as a signal. A critique online overlaid an Archimedean spiral to demonstrate this off-centeredness:
-					<a href="https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center">https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center</a>.
-				</p>
+					<p>
+						In fact, the spiral appears shifted and "wobbly," likely due to an aesthetic adjustment that breaks the expectation of a clean, centered spiral. Even subtle off-centering matters because it introduces an additional non-data variation in curvature that viewers cannot help but read as a signal. A critique online overlaid an Archimedean spiral to demonstrate this off-centeredness.
+						
+					</p>
 
-				<p>
-					Another issue is the time mapping. Most people conceptualize months linearly (a timeline, calendar rows, or seasons), not as directions in space. So when April appears on the right side of a circle, the viewer must consciously decode: right = April. That adds cognitive load. It is not impossible, but it is not pre-attentive. In a spiral, time moves angularly and radially at once. Viewers must parse two transformations simultaneously: angle = month within year, radius = case magnitude, and outward progression = later year. That triple encoding is elegant but cognitively expensive. However, if the purpose is rhetorical, especially in an opinion piece like this one, the spiral can serve a different function. It visually reinforces the idea of recurrence. Cycles, repetition, and escalation are communicated geometrically.
-				</p>
+						<figure>
+							<img src="spirals-overlaid.png" alt="Overlay critique showing the off-center COVID spiral against a reference spiral" />
+							<figcaption>
+								Overlay image reproduced from the EagerEyes critique showing how the New York Times COVID spiral deviates from a clean, centered Archimedean spiral. The visible off-centering and wobble create a non-data visual artifact that can make the chart feel geometrically inconsistent and visually unsatisfying, even before precise value reading begins. Source: <a href="https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center">https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center</a>.
+							</figcaption>
+						</figure>
+
+					<p>
+						Another issue is the time mapping. Most people conceptualize months linearly (a timeline, calendar rows, or seasons), not as directions in space. So when April appears on the right side of a circle, the viewer must consciously decode: right = April. That adds cognitive load. It is not impossible, but it is not pre-attentive. In a spiral, time moves angularly and radially at once. Viewers must parse two transformations simultaneously: angle = month within year, radius = case magnitude, and outward progression = later year. That triple encoding is elegant but cognitively expensive. However, if the purpose is rhetorical, especially in an opinion piece like this one, the spiral can serve a different function. It visually reinforces the idea of recurrence. Cycles, repetition, and escalation are communicated geometrically.
+					</p>
 			</section>
 
 		<section>
 			<h2>Visualization Sketches</h2>
 
-      <figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-          BRIEF CAPTION HERE.
-				</figcaption>
-			</figure>
+		      <figure>
+					<img src="Line.png" alt="Line plot of new confirmed cases overtime with seasons shaded in the background" />
+					<figcaption>
+			          Linear time-series sketch of new confirmed COVID-19 cases with winter and summer background shading to highlight seasonal recurrence while preserving precise value and slope readability.
+					</figcaption>
+				</figure>
 
 			<p>
 				Design Rationale for Sketch 1:
 			</p>
 
-			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
-			</ul>
+					<ul>
+						<li>
+							Motivation: to improve quantitative precision and slope readability while eliminating the radial distortions introduced by the spiral format.
+							<ul style="list-style-type: circle;">
+								<li>Return to a conventional linear time axis -> make interpretation cognitively effortless and analytically reliable.</li>
+								<li>The vertical blue and red bars are supposed to be like a shaded region of the chart to represent seasons -> cyclic nature of the data</li>
+							</ul>
+						</li>
+						<li>
+							Communicate exact magnitudes of case counts, clearly differentiate acceleration patterns.
+							<ul style="list-style-type: circle;">
+								<li>sharp Omicron spike in Jan 2021 compared to prior waves</li>
+								<li>winter seasonality through vertical shading</li>
+								<li>preserve continuity across calendar boundaries without artificial breaks.</li>
+							</ul>
+						</li>
+						<li>Rationale: This approach directly addresses the critique of the spiral because linear time is intuitive and pre-attentive, slopes are visually legible, and viewers are not required to decode angular positions or interpret potentially misleading area thickness from ribbons. What worked well is the clarity of value comparison, the ease of identifying Omicron's steep rise relative to earlier waves, and the straightforward quantification of escalation.</li>
+						<li>However, while seasonality is visible through shading, the visualization does not reinforce recurrence as powerfully as the spiral. So it feels more conventional and less rhetorically striking. The next step would be to explore aligning years directly like through a day-of-year overlay, to emphasize recurrence more explicitly while maintaining analytic clarity.</li>
+					</ul>
 
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-          BRIEF CAPTION HERE.
-				</figcaption>
-			</figure>
+					<p>
+						Sketch 1 summary: This sketch is strongest for precise magnitude comparison and slope readability, and it clearly shows major wave escalation. Next, I want to preserve that clarity while testing a representation that makes recurrence more visually immediate.
+					</p>
+
+					<figure>
+						<img src="HeatMap.png" alt="Heatmap sketch" />
+						<figcaption>
+			          Spiral heatmap sketch where angle represents position within the Dec-to-Dec year and color represents case magnitude, emphasizing the timing and persistence of recurring seasonal surges.
+						</figcaption>
+					</figure>
 
 			<p>
 				Design Rationale for Sketch 2:
 			</p>
 
-			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
-			</ul>
+					<ul>
+						<li>Motivation: to preserve the cyclical metaphor of "one year = one circle" while eliminating the geometric distortions introduced by the ribbon from the original.</li>
+						<li>
+							Radius still simultaneously encodes magnitude and time progression, the heatmap decouples those dimensions:
+							<ul style="list-style-type: circle;">
+								<li>angle encodes position within the Dec→Dec epidemiological year</li>
+								<li>color encodes case magnitude.</li>
+								<li>There is still a perception that the radius is expanding which can distort the understanding of the radius (although it has no meaning).</li>
+								<li>The months are spread around the circle like a clock, which better matches what people are used to for numbers arranged around a circle.</li>
+							</ul>
+						</li>
+						<li>
+							The design is intended to communicate timing and persistence rather than slope. Can answer questions like:
+							<ul style="list-style-type: circle;">
+								<li>Do winter surges recur at the same angular location each year?</li>
+								<li>Are summer troughs consistent?</li>
+							</ul>
+						</li>
+						<li>Recurrence patterns become immediately legible. High-intensity regions that cluster near the winter arc across the spiral visually reinforce seasonal amplification without requiring angular inference from overlapping lines.</li>
+						<li>Another motivation is reducing overplotting. In overlapping radial line graphs, multiple years can obscure one another. The heatmap avoids this by assigning each year its own space on the spiral, eliminating visual competition while maintaining structural comparability. The shared color scale across rings ensures that magnitude comparisons remain honest and interpretable.</li>
+					</ul>
 
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-          BRIEF CAPTION HERE.
-				</figcaption>
-			</figure>
+					<p>
+						Sketch 2 summary: This version improves recurrence and seasonality detection while reducing overlap clutter between years. For the next sketch, I want to test whether a shared polar frame can keep cyclical structure but support clearer year-to-year magnitude comparison.
+					</p>
+
+				<figure>
+					<img src="Polar.png" alt="Polar sketch" />
+					<figcaption>
+		          Overlaid polar-year sketch with a shared radial scale across years, designed to preserve cyclical structure while reducing outward-growth distortion from the original spiral.
+					</figcaption>
+				</figure>
 
 			<p>
 				Design Rationale for Sketch 3:
 			</p>
 
-			<ul>
-				<li>RATIONALE 1</li>
-				<li>RATIONALE 2</li>
-				<li>RATIONALE 3</li>
-			</ul>
-		</section>
+					<ul>
+						<li>Motivation for this overlaid polar-year design was to preserve the cyclical insight of the original spiral while eliminating its distortions and cognitive burden.</li>
+						<li>By fixing the radial scale across all years and allowing each Dec→Dec cycle to overlap on the same circle, the visualization removes the artificial “outward growth” effect created by spiraling geometry. Escalation is now encoded only in magnitude, not in radial expansion. This directly addresses the concern that the original spiral visually exaggerates later waves simply because they sit on larger radii.</li>
+						<li>
+							Anchoring December at 12 o’clock and moving clockwise aligns the graphic with a familiar clock metaphor, reducing angular decoding effort. Unlike the original spiral, where angle and radius both change over time, this design cleanly separates encodings.
+							<ul style="list-style-type: circle;">
+								<li>angle represents position within the epidemiological year (Dec→Dec)</li>
+								<li>radius represents case magnitude</li>
+								<li>One revolution equals one year, consistently. That structural clarity improves interpretability without abandoning radial time entirely.</li>
+							</ul>
+						</li>
+						<li>Quarters represent seasons. In the spiral, Dec-Mar (winter) peaks align visually, but the viewer must infer that alignment. Here, seasonal boundaries are embedded directly into the design, making it immediately clear whether winter consistently drives surges and whether summer troughs recur.</li>
+						<li>The transparency gradient (not done very well in the sketch) within each year preserves a single color identity per year while allowing intra-year seasonal differences to be perceptible.</li>
+					</ul>
+
+					<p>
+						Sketch 3 summary: This design keeps the cyclical framing while reducing outward-growth distortion and improving comparability on a fixed radial scale. The next improvement is to refine styling and annotation so magnitude differences and seasonal alignment read faster. The goal for the final sketch is to combine strong quantitative readability with clear visual communication of recurring seasonal dynamics.
+					</p>
+
+					<p>
+						The message I want to convey with these graphs is that the Omicron strand is going to have the highest numbers yet and the shortest duration (reflecting the original opinion piece), and all these graphs were able to highlight this in varying degrees. The physical spiking was best in Sketch 1 and Sketch 3, while in the heatmap you can still easily tell there is a drastic change during Jan-Feb 2021, but there is more cognitive load to figure out what number the colors represent (red is first of the rainbow = highest). So I want to explore the line plotting a bit more.
+					</p>
+			</section>
 
 		<section>
-			<h2>Final Visualization Design</h2>
-      
-			<figure>
-				<img src="IMAGE_FILENAME" alt="" />
-				<figcaption>
-          BRIEF CAPTION HERE.
-				</figcaption>
-			</figure>
+				<h2>Final Visualization Design</h2>
+	      
+					<figure>
+						<img src="PolarMatlab.png" alt="Final overlaid polar-year COVID-19 case visualization" />
+						<figcaption>
+		          Final design based on Sketch 3, refined to be easier to read while still preserving the cyclical year structure. The chart improves readability of case magnitudes across years by using a consistent radial scale and clearer overlaid yearly curves.
+						</figcaption>
+					</figure>
 
-		</section>
+			</section>
 
-		<section>
-			<h2>Final Writeup</h2>
+			<section>
+					<h2>Final Writeup</h2>
 
-			<p>
-        DESCRIBE YOUR RATIONALE TO JUSTIFY THE DECISIONS FOR YOUR FINAL DESIGN.
-				WHAT ARE YOU TRYING TO CONVEY, AND HOW DOES YOUR DESIGN FACILITATE THIS?
-      </p>
+					<p>
+						The overlaid polar-year design was motivated by the need to preserve the cyclical structure of COVID-19 waves while eliminating the geometric distortions introduced by a spiral layout. In the spiral, outward radial expansion encoded time as well as magnitude, visually exaggerating later waves simply because they occupied larger radii. By fixing a single radial scale and allowing each Dec→Dec cycle to overlap on the same circle, escalation is encoded exclusively in radial distance, not in spatial drift. Angle represents position within the epidemiological year, radius represents case magnitude, and one full revolution equals one year. Anchoring December at 12 o’clock leverages a clock metaphor to reduce angular decoding effort, while the red→purple continuous gradient encodes absolute time progression from Dec 2020 to Sep 2022, guiding viewers through an otherwise irregular shape. The start (triangle) and end (dot) markers provide orientation cues in a format that lacks inherent left-to-right directionality. Radial reference rings and a labeled outward arrow clarify that magnitude increases with radius. Seasonal structure is embedded directly in the circular segmentation, allowing winter peaks to align visually across years and making recurrent seasonal surges immediately apparent. The central message is that COVID waves are temporally cyclical phenomena whose magnitudes vary dramatically, most notably the sharp, extreme Omicron spike.
+					</p>
 
-			<p>
-        REFLECT ON HOW YOUR FINAL DESIGN DOES OR DOES NOT ADDRESS YOUR ORIGINAL CRITIQUE.
-				WHAT TENSIONS OR TRADEOFFS DID YOU ENCOUNTER? WHAT DID NOT WORK OUT AS ANTICIPATED?
-      </p>
-		</section>
+					<p>
+						However, this design introduces tradeoffs. While it corrects the exaggeration critique of the spiral and improves seasonal comparability, radial distance is inherently harder to compare precisely than vertical position in a Cartesian line chart. The design prioritizes cyclical and structural insight over exact quantitative readability. The color gradient aids temporal navigation but may draw attention away from magnitude differences, and the density of scaffolding elements (markers, gradient, scale arrow, month spokes) increases visual complexity. Some aspects, such as precise inter-peak comparison or short-term fluctuations, are downplayed in favor of emphasizing annual recurrence and relative surge scale. The critique-by-redesign process clarified that eliminating one distortion often requires introducing another compromise: preserving cyclic time sacrifices some linear comparability. <strong>So...</strong>
+					</p>
+
+					<p>
+						<strong>Sike!</strong> I decided to create the real final visualization as a line graph with targeted visual cues that, <em>I think</em>, better communicates my core message: the Omicron strand is stronger and punchier than earlier waves, with higher peaks and shorter durations.
+					</p>
+				</section>
+
+				<section>
+					<h2>THE REAL Final Visualization Design</h2>
+
+						<figure>
+							<img src="LineMatlab.png" alt="The real final line-chart visualization" />
+							<figcaption>
+								Final line-chart design with annotated prominent waves. For each wave, peak was calculated as the local maximum of the smoothed case curve, and FWHM (full width at half maximum) was calculated as the time span between the two half-peak crossings around that maximum. Using these metrics, the Omicron wave is highlighted as the tallest peak and the narrowest peak (smallest FWHM), indicating the most intense and most temporally compressed surge.
+								The blue and pink shading represents the winter and summer seasons, respectively. 
+							</figcaption>
+						</figure>
+				</section>
+
+					<section>
+						<h2>THE REAL Final Writeup</h2>
+
+						<p>
+							For the final design, I chose to prioritize simplicity, interpretability, and minimal cognitive load over novelty. When I asked peers to interpret my sketches, the most accurate and immediate interpretations consistently came from the standard time-series line graph. That observation informed the final decision: rather than pursue the most visually creative design, I opted for the format that most clearly conveyed the message in a familiar way. The central message is that COVID-19 waves vary dramatically in magnitude and duration, with Omicron standing out as both extraordinarily high and comparatively short-lived, and that these surges exhibit seasonal recurrence. The line graph encodes time linearly along the horizontal axis and magnitude vertically, leveraging conventions that viewers already understand. This reduces angular decoding effort and removes the geometric distortions inherent in spiral or polar layouts. The addition of winter (blue) and summer (pink) shading embeds cyclical structure directly into the background, making seasonal recurrence perceptible without requiring the viewer to infer it. The design therefore communicates both magnitude and seasonality while maintaining structural clarity.
+						</p>
+
+						<p>
+							The visual encodings were chosen deliberately to support this message. A continuous black line encodes the 7-day average, smoothing short-term noise while preserving trend structure. Magnitude is encoded by vertical position, the most perceptually accurate channel for quantitative comparison. Seasonal shading uses low-opacity color bands so that cyclical context is present but does not compete with the data. FWHM double arrows quantify wave duration, and stacked peak annotations explicitly report peak magnitude, reinforcing the comparison between waves without requiring visual estimation alone. These decisions emphasize comparability, clarity, and narrative focus with quantitative metrics annotated in. However, tradeoffs remain. The linear layout downplays the cyclical symmetry that the polar design highlights and annual recurrence must be inferred across horizontal distance rather than observed through angular alignment. The shading suggests seasonality but does not structurally encode “one revolution equals one year” as the polar design did. The critique-by-redesign process clarified that eliminating geometric exaggeration and reducing cognitive burden required sacrificing some structural elegance. Ultimately, the final design favors recognizability and interpretive accuracy over formal creativity, addressing the most consequential critiques while accepting the inherent tension between cyclical representation and quantitative precision.
+						</p>
+					</section>
 	</main>
 </body>
 </html>
