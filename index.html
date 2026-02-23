@@ -13,7 +13,7 @@
 		</h1>
 
 		<p>
-			<strong>Your Name</strong> — <em>Your MIT Email Address</em>
+			<strong>Nuri Hong</strong> — <em>nurihong@mit.edu</em>
 		</p>
 	</header>
 
@@ -29,20 +29,38 @@
 				Insights about the data/visualization:
 			</p>
 
-			<ul>
-				<li>INSIGHT 1</li>
-				<li>INSIGHT 2</li>
-				<li>INSIGHT 3</li>
-			</ul>
+				<ul>
+					<li>
+						The seasonality of the trends is immediately visible across years. Because January aligns with January, July with July, etc., peaks line up angularly. I can directly compare winter-to-winter or summer-to-summer behavior without scanning horizontally across separate panels. In a conventional stacked time-series plot, you would have to visually "jump" across years to compare January 2021 to January 2022. Here, they sit on the same radial axis.
+					</li>
+					<li>
+						The repeated winter amplification pattern becomes visually structural rather than inferential. This supports pattern recognition of repeated temporal structures. The eye naturally detects circular periodicity. The repeated winter spikes align along the same radial sector, reinforcing the cyclical nature of transmission dynamics.
+					</li>
+					<li>
+						The visualization encodes temporal continuity across years without artificial breaks. Traditional year-separated plots (small multiples) impose visual discontinuities at December-January boundaries. In this spiral, December flows directly into January as a natural continuation, emphasizing pandemic persistence rather than "calendar resets." That continuity supports interpretation of wave carryover and policy lag effects.
+					</li>
+					<li>
+						I think what the visualization does well is it provides an intuitive mental model of "waves layered in time." The spiral makes clear that 2021 does not overwrite 2020; it wraps around it. This layering helps conceptualize compounding public health burden and the escalation in baseline case levels year-over-year.
+					</li>
+				</ul>
 
 			<p>
 				Design Critique:
 			</p>
 
-			<p>
-				DESCRIBE YOUR CRITIQUE IN 1-2 PARAGRAPHS.
-			</p>
-		</section>
+				<p>
+					The core problem is that the chart optimizes for affect and novelty more than for measurement. Spiral/radial encodings make it harder to do the two things readers most want in a COVID cases chart: (1) read approximate values at specific dates, and (2) compare slopes/acceleration between waves. Precise estimation/comparison becomes difficult, and the geometry can distort perceived magnitude, like how later years can look "bigger" partly because they are drawn on a larger radius. The outward rings carry a built-in "larger circle = larger thing" perceptual cue even if the data values were identical.
+				</p>
+
+				<p>
+					In fact, the spiral appears shifted and "wobbly," likely due to an aesthetic adjustment that breaks the expectation of a clean, centered spiral. Even subtle off-centering matters because it introduces an additional non-data variation in curvature that viewers cannot help but read as a signal. A critique online overlaid an Archimedean spiral to demonstrate this off-centeredness:
+					<a href="https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center">https://eagereyes.org/blog/2022/the-ny-times-covid-spiral-is-off-center</a>.
+				</p>
+
+				<p>
+					Another issue is the time mapping. Most people conceptualize months linearly (a timeline, calendar rows, or seasons), not as directions in space. So when April appears on the right side of a circle, the viewer must consciously decode: right = April. That adds cognitive load. It is not impossible, but it is not pre-attentive. In a spiral, time moves angularly and radially at once. Viewers must parse two transformations simultaneously: angle = month within year, radius = case magnitude, and outward progression = later year. That triple encoding is elegant but cognitively expensive. However, if the purpose is rhetorical, especially in an opinion piece like this one, the spiral can serve a different function. It visually reinforces the idea of recurrence. Cycles, repetition, and escalation are communicated geometrically.
+				</p>
+			</section>
 
 		<section>
 			<h2>Visualization Sketches</h2>
